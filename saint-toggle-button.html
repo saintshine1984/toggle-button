@@ -8,18 +8,22 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../iron-icons/image-icons.html">
 <link rel="import" href="../paper-button/paper-button.html">
-<link rel="import" href="../paper-styles/default-theme.html">
+
+
 <!--
 An element providing a solution to no problem in particular.
 
 Example:
 
-    <saint-toggle-button>
-      <paper-item value="1">Item 1</paper-item>
-      <paper-item value="2">Item 2</paper-item>
-      <paper-item value="3">Item 3</paper-item>
-    </saint-toggle-button>
+    <saint-toggle-button selected="2" icon="image:photo" on-change="onChange">
+        <paper-item value="value1">Item 1</paper-item>
+        <paper-item value="value2">Item 2</paper-item>
+        <paper-item value="value3">Item 3</paper-item>
+      </saint-toggle-button>
 
 @demo
 -->
@@ -41,8 +45,10 @@ Example:
   
     <paper-button
       id="toggleButton"
-      on-click="_onClick"
-      on-change="_onChangeToggle">
+      on-click="_onClick">
+      <template is="dom-if" if="{{icon}}">
+        <iron-icon icon="{{icon}}"></iron-icon>
+      </template>
       <span id="label"></span>
     </paper-button>
     <div id="items" hidden>
@@ -66,6 +72,12 @@ Example:
         type: Number,
         value: 0
       },
+      /**
+       * icon
+       */
+      icon: {
+        type: String,
+      }
     },
 
     // Element Lifecycle
