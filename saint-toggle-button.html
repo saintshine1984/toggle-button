@@ -1,0 +1,116 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-styles/default-theme.html">
+<!--
+An element providing a solution to no problem in particular.
+
+Example:
+
+    <saint-toggle-button>
+      <paper-item value="1">Item 1</paper-item>
+      <paper-item value="2">Item 2</paper-item>
+      <paper-item value="3">Item 3</paper-item>
+    </saint-toggle-button>
+
+@demo
+-->
+<dom-module id="saint-toggle-button">
+
+  
+  <template>
+    <style is="custom-style">
+      :host {
+        display: inline-block;
+        box-sizing: border-box;
+      }
+      paper-button {
+        @apply(--saint-toggle-button);
+        color: var(--saint-toggle-button-color, blue);
+        background: var(--saint-toggle-button-background-color, white);
+      }
+    </style>
+  
+    <paper-button
+      id="toggleButton"
+      on-click="_onClick"
+      on-change="_onChangeToggle">
+      <span id="label"></span>
+    </paper-button>
+    <div id="items" hidden>
+      <content></content>
+    </div>
+  </template>
+
+</dom-module>
+
+<script>
+
+  Polymer({
+
+    is: 'saint-toggle-button',
+
+    properties: {
+
+    },
+
+    // Element Lifecycle
+    ready: function() {
+      this._change(0);
+    },
+    attached: function() {
+      // `attached` fires once the element and its parents have been inserted
+      // into a document.
+      //
+      // This is a good place to perform any work related to your element's
+      // visual state or active behavior (measuring sizes, beginning animations,
+      // loading resources, etc).
+    },
+    detached: function() {
+      // The analog to `attached`, `detached` fires when the element has been
+      // removed from a document.
+      //
+      // Use this to clean up anything you did in `attached`.
+    },
+    // Element Behavior
+
+    /**
+     * The `change` event is fired whenever button clicked.
+     *
+     * @event change
+     * @detail {{index: Number, value: String}}
+     */
+
+    /**
+     * Sometimes it's just nice to say hi.
+     *
+     * @param {string} greeting A positive greeting.
+     * @return {string} The full greeting.
+     */
+    _onClick: function(event) {
+      var items = this.querySelectorAll('#items paper-item');
+      var index = (this.current + 1) % items.length;
+      this._change(index);
+    },
+    _change: function(index) {
+      var items = this.querySelectorAll('#items paper-item');
+      this.$.label.innerHTML = items[index].innerHTML;
+      var value = items[index].getAttribute('value');
+      this.setAttribute('value', value);
+      this.setAttribute('toggle-index', index);
+      this.current = index;
+      this.updateStyles();
+      this.fire('change', {index: index, value: value});
+    },
+
+  });
+
+</script>
