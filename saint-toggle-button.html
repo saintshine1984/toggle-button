@@ -70,7 +70,7 @@ Example:
 
     // Element Lifecycle
     ready: function() {
-      this._change(0);
+      this._change(this.selected);
     },
     attached: function() {
       // `attached` fires once the element and its parents have been inserted
@@ -103,7 +103,7 @@ Example:
      */
     _onClick: function(event) {
       var items = this.querySelectorAll('#items paper-item');
-      var index = (this.current + 1) % items.length;
+      var index = (this.selected + 1) % items.length;
       this._change(index);
     },
     _change: function(index) {
@@ -112,7 +112,7 @@ Example:
       var value = items[index].getAttribute('value');
       this.setAttribute('value', value);
       this.setAttribute('toggle-index', index);
-      this.current = index;
+      this.selected = index;
       this.updateStyles();
       this.fire('change', {index: index, value: value});
     },
