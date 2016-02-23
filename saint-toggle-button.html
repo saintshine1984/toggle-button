@@ -82,7 +82,7 @@ Example:
 
     // Element Lifecycle
     ready: function() {
-      this._change(this.selected);
+      this._change(this.selected, false);
     },
     attached: function() {
       // `attached` fires once the element and its parents have been inserted
@@ -116,9 +116,9 @@ Example:
     _onClick: function(event) {
       var items = this.querySelectorAll('#items paper-item');
       var index = (this.selected + 1) % items.length;
-      this._change(index);
+      this._change(index, true);
     },
-    _change: function(index) {
+    _change: function(index, isFire) {
       var items = this.querySelectorAll('#items paper-item');
       this.$.label.innerHTML = items[index].innerHTML;
       var value = items[index].getAttribute('value');
@@ -126,7 +126,9 @@ Example:
       this.setAttribute('toggle-index', index);
       this.selected = index;
       this.updateStyles();
-      this.fire('change', {index: index, value: value});
+      if (isFire) {
+        this.fire('change', {index: index, value: value});  
+      }
     },
 
   });
