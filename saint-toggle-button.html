@@ -126,7 +126,7 @@ Example:
       this.setAttribute('toggle-index', index);
       this.selected = index;
       this.updateStyles();
-      if (!isFire) {
+      if (!isNoFire) {
         this.fire('change', {index: index, value: value});  
       }
     },
