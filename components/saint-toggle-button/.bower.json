@@ -1,0 +1,39 @@
+{
+  "name": "saint-toggle-button",
+  "authors": [
+    "Anonymous <anonymous@example.com>"
+  ],
+  "description": "An element providing a solution to no problem in particular.",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "seed"
+  ],
+  "main": "saint-toggle-button.html",
+  "license": "http://polymer.github.io/LICENSE.txt",
+  "homepage": "https://github.com/<USERNAME>/saint-toggle-button/",
+  "ignore": [
+    "/.*",
+    "/test/",
+    "/demo/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.0.0",
+    "paper-button": "PolymerElements/paper-button#^1.0.11"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+    "web-component-tester": "*"
+  },
+  "_release": "55655c943b",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "55655c943bef569f5449899f0f7e347df84787d6"
+  },
+  "_source": "git://github.com/saintshine84/saint-toggle-button.git",
+  "_target": "master",
+  "_originalSource": "saintshine84/saint-toggle-button",
+  "_direct": true
+}
