@@ -3,7 +3,7 @@
 
 multiple toggle button by Polymer Element
 
-[Demo](saintshine84.github.io/saint-toggle-button/)
+[Demo](http://saintshine84.github.io/saint-toggle-button/components/saint-toggle-button/)
 
 ## Install
 
