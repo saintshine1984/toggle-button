@@ -19,11 +19,38 @@ An element providing a solution to no problem in particular.
 
 Example:
 
-    <saint-toggle-button selected="2" icon="image:photo" on-change="onChange">
+    <style is="custom-style">
+      saint-toggle-button {
+        --saint-toggle-button: {
+          font-size: 14px;
+          font-weight: bold;
+        };
+        --saint-toggle-button-color: var(--paper-grey-50);
+        --saint-toggle-button-background-color: var(--paper-blue-500);
+      }
+      saint-toggle-button[toggle-index="1"] {
+        --saint-toggle-button-background-color: var(--paper-pink-500);
+      }
+      saint-toggle-button[toggle-index="2"] {
+        --saint-toggle-button-background-color: var(--paper-green-500);
+      }
+    </style>
+
+    <template is="dom-bind" id="app">
+      <saint-toggle-button selected="2" icon="image:photo" on-change="onChange">
         <paper-item value="value1">Item 1</paper-item>
         <paper-item value="value2">Item 2</paper-item>
         <paper-item value="value3">Item 3</paper-item>
       </saint-toggle-button>
+      <div id="result">
+    </template>
+    
+    <script>
+      var app = document.querySelector('#app');
+      app.onChange = function(event) {
+        app.$.result.innerHTML = JSON.stringify(event.detail);
+      };
+    </script>
 
 @demo
 -->

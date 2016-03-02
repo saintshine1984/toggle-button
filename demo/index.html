@@ -15,6 +15,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <title>saint-toggle-button Demo</title>
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="../saint-toggle-button.html">
+    <link rel="import" href="../bower_components/paper-styles/paper-styles.html">
 
   </head>
   <body>
@@ -24,14 +25,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           font-size: 14px;
           font-weight: bold;
         };
-        --saint-toggle-button-color: #F5F5F5;
-        --saint-toggle-button-background-color: #2196F3;
+        --saint-toggle-button-color: var(--paper-grey-50);
+        --saint-toggle-button-background-color: var(--paper-blue-500);
       }
       saint-toggle-button[toggle-index="1"] {
-        --saint-toggle-button-background-color: #FF9800;
+        --saint-toggle-button-background-color: var(--paper-pink-500);
       }
       saint-toggle-button[toggle-index="2"] {
-        --saint-toggle-button-background-color: #FF5722;
+        --saint-toggle-button-background-color: var(--paper-green-500);
       }
     </style>
     <template is="dom-bind" id="app">
