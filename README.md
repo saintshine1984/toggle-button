@@ -7,4 +7,4 @@ multiple toggle button by Polymer Element
 
 ## Install
 
-    bower install saintshine84/saint-toggle-button
+    bower install --save saintshine84/saint-toggle-button
