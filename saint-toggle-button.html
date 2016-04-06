@@ -64,9 +64,9 @@ Example:
         box-sizing: border-box;
       }
       paper-button {
-        @apply(--saint-toggle-button);
         color: var(--saint-toggle-button-color, blue);
         background: var(--saint-toggle-button-background-color, white);
+        @apply(--saint-toggle-button);
       }
     </style>
   
@@ -141,12 +141,12 @@ Example:
      * @return {string} The full greeting.
      */
     _onClick: function(event) {
-      var items = this.querySelectorAll('#items paper-item');
+      var items = this.querySelectorAll('#items paper-item:not([hidden])');
       var index = (this.selected + 1) % items.length;
       this._change(index);
     },
     _change: function(index, isNoFire) {
-      var items = this.querySelectorAll('#items paper-item');
+      var items = this.querySelectorAll('#items paper-item:not([hidden])');
       this.$.label.innerHTML = items[index].innerHTML;
       var value = items[index].getAttribute('value');
       this.setAttribute('value', value);
